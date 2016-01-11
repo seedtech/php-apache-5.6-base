@@ -13,4 +13,4 @@ RUN a2enmod rewrite php5
 
 RUN docker-php-ext-install pdo pdo_mysql mysql
 
-COPY ./seed-defaults.ini /etc/php/conf.d/
+COPY ./seed-defaults.ini /usr/local/etc/php/conf.d/
