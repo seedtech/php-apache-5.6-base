@@ -13,4 +13,10 @@ RUN a2enmod rewrite php5
 
 RUN docker-php-ext-install pdo pdo_mysql mysql
 
+#install sendmail
+
+RUN apt-get update && apt-get install -y ca-certificates sendmail-bin sendmail
+
 COPY ./seed-defaults.ini /usr/local/etc/php/conf.d/
+
+RUN printf "\nsendmail_path=$(which sendmail) -t -i;\n" >> /usr/local/etc/php/conf.d/seed-defaults.ini
